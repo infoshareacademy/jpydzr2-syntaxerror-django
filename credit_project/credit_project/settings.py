@@ -89,6 +89,12 @@ DATABASES = {
         'PASSWORD': 'XXXX',
         'HOST': 'localhost',
         'PORT': '5432',
+        'ENGINE': '',
+        'NAME': '',
+        'USER': '',
+        'PASSWORD': '',
+        'HOST': '',
+        'PORT': '',
     }
 }
 
@@ -134,3 +140,9 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# import databese settings from settings_local
+try:
+    from credit_project.settings_local import *  # noqa: F403, F401
+except ImportError:
+    pass
