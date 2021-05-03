@@ -83,12 +83,6 @@ WSGI_APPLICATION = 'credit_project.wsgi.application'
 #}
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'credit',
-        'USER': 'postgres',
-        'PASSWORD': 'XXXX',
-        'HOST': 'localhost',
-        'PORT': '5432',
         'ENGINE': '',
         'NAME': '',
         'USER': '',
