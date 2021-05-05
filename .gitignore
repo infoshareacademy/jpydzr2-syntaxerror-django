@@ -126,3 +126,4 @@ Thumbs.db
 # profiling data
 .prof
 git re
+.idea
