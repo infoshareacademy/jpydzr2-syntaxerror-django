@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+  <h1>Dashboard</h1>
+
+
+
+  <p><a href="{% url "accounts:logout" %}">logout</a><p>
+  <p><a href="{% url "accounts:edit" %}">edit</a><p>
+{% endblock %}
