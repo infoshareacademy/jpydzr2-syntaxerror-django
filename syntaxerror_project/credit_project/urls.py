@@ -19,4 +19,5 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('credit_app.urls', namespace='predict')),
+    path('', include('account.urls', namespace='accounts'))
 ]
