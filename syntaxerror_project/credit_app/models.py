@@ -9,6 +9,7 @@ class PredictModel(models.Model):
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
     )
+    request_datetime = models.DateTimeField(auto_now=True)
     married = models.IntegerField()
     education = models.IntegerField()
     applicant_income = models.IntegerField()
@@ -17,7 +18,3 @@ class PredictModel(models.Model):
     loan_term = models.IntegerField()
     credit_history = models.IntegerField()
     loan_chances = models.DecimalField(decimal_places=2, max_digits=2)
-
-    def __str__(self):
-        return '{}'.format(self.requestor)
-

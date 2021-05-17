@@ -126,11 +126,11 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-LOGIN_REDIRECT_URL = 'credit_app:predict'
+LOGIN_REDIRECT_URL = 'predict:submit_prediction'
 LOGIN_URL = 'accounts:login'
 
 LOGOUT_URL = 'accounts:logout'
-LOGOUT_REDIRECT_URL = 'credit_app:predict'
+LOGOUT_REDIRECT_URL = 'predict:submit_prediction'
 
 # CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap4"

@@ -9,6 +9,7 @@ class PredictModelAdmin(admin.ModelAdmin):
 
     list_display = [
         'requestor',
+        'request_datetime',
         'married',
         'education',
         'applicant_income',

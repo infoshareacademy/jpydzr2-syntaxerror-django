@@ -7,13 +7,10 @@ from django.contrib import messages
 import pandas as pd
 import lightgbm as lgb
 from sklearn.preprocessing import MinMaxScaler
+from django.views.generic import ListView
 
 
 # Create your views here.
-
-def predict(request):
-    return render(request, 'predict.html')
-
 
 def predict_chances(request):
     if request.method == "POST":
@@ -47,11 +44,14 @@ def predict_chances(request):
             if request.user.is_authenticated:
                 p = PredictModel(
                     requestor=User.objects.get(username=request.user.username),
-                    married=married, education=education,
+                    married=married,
+                    education=education,
                     applicant_income=applicant_income,
                     co_applicant_income=co_applicant_income,
-                    loan_amount=loan_amount, loan_term=loan_term,
-                    credit_history=credit_history, loan_chances=result,
+                    loan_amount=loan_amount,
+                    loan_term=loan_term,
+                    credit_history=credit_history,
+                    loan_chances=result,
                 )
                 p.save()
 
@@ -61,4 +61,9 @@ def predict_chances(request):
                                  probability))
 
     form = PredictForm()
-    return render(request, "predict.html", {"form": form})
+    return render(request, "predictions/predict.html", {"form": form})
+
+
+class RequestsView(ListView):
+    model = PredictModel
+    template_name = 'predictions/loan_requests.html'
