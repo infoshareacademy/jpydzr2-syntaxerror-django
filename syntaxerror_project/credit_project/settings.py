@@ -77,7 +77,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'credit',
         'USER': 'postgres',
-        'PASSWORD': 'xxxx',
+        'PASSWORD': 'pass',
         'HOST': 'localhost',
         'PORT': '5432',
     }
@@ -132,5 +132,5 @@ LOGIN_URL = 'accounts:login'
 LOGOUT_URL = 'accounts:logout'
 LOGOUT_REDIRECT_URL = 'credit_app:predict'
 
-CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
-CRISPY_TEMPLATE_PACK = "bootstrap5"
+# CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap4"
