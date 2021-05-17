@@ -1,124 +1,24 @@
 {% extends 'base.html' %}
 
+{% load crispy_forms_tags %}
+
 {% block content %}
 
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Prediction Results</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <h5>Prediction Input:</h5>
-                    <div>Loan Amount: <span id="la"></span></div>
-                    <div>Loan Term: <span id="lt"></span></div>
-                    <div>Applicant Income: <span id="ai"></span></div>
-                    <div>Co-applicant Income: <span id="ci"></span></div>
-                    <h5 class="pt-3">Eligibility probability:</h5>
-                    <div id="proba"></div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-{#                    <a class="btn btn-primary" href="/results" role="button">View DB</a>#}
-                </div>
-            </div>
-        </div>
+    <div class="container col-md-3 pt-5">
+        <h1>Predict</h1>
+        <form method="POST" class="form-group">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <button type="submit" class="btn btn-success" data-toggle="modal"
+                    data-target="#predictModal">Predict
+            </button>
+        </form>
+
+        {% if messages %}
+            {% for message in  messages %}
+                {{ message }}
+            {% endfor %}
+        {% endif %}
     </div>
-
-    <div class="container pt-5">
-        <div class="row justify-content-md-center">
-            <div class="col-md-4">
-                <h1>Loan eligibility</h1>
-                <form action="" id="post-form">
-                    {% csrf_token %}
-                    <div class="form-group">
-                        <label for="married">Married</label>
-                        <select class="form-control" id="married">
-                            <option disabled selected value> -- select an option -- </option>
-                            <option>True</option>
-                            <option>False</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="education">Education</label>
-                        <select class="form-control" id="education">
-                            <option disabled selected value> -- select an option -- </option>
-                            <option>Graduate</option>
-                            <option>Not Graduate</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="credit_history">Credit History</label>
-                        <select class="form-control" id="credit_history">
-                            <option disabled selected value> -- select an option -- </option>
-                            <option>True</option>
-                            <option>False</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="applicant_income">Applicant Income</label>
-                        <input type="number" step="1" class="form-control" id="applicant_income" min=0 placeholder=" -- provide an income -- " required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="co_applicant_income">Co-applicant Income</label>
-                        <input type="number" step="1" class="form-control" id="co_applicant_income" min=0 placeholder=" -- provide an income -- " required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="loan_amount">Loan Amount</label>
-                        <input type="number" step="1" class="form-control" id="loan_amount" min=0 placeholder=" -- provide a loan value -- " required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="loan_term">Loan Term</label>
-                        <input type="number" step="1" class="form-control" id="loan_term" min=0 placeholder=" -- provide number of months -- " required>
-                    </div>
-
-                    <button type="submit" value="Submit" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Submit</button>
-                </form>
-            </div>
-        </div>
-    </div>
-
-
-    <script>
-        $(document).on('submit', '#post-form',function(e){
-            e.preventDefault();
-            $.ajax({
-                type:'POST',
-                url:'{% url "predict:submit_prediction" %}',
-                data:{
-                    married:$('#married').val(),
-                    education:$('#education').val(),
-                    credit_history:$('#credit_history').val(),
-                    applicant_income:$('#applicant_income').val(),
-                    co_applicant_income:$('#co_applicant_income').val(),
-                    loan_amount:$('#loan_amount').val(),
-                    loan_term:$('#loan_term').val(),
-                    csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val(),
-                    action: 'post'
-                },
-                success:function(json) {
-                    document.forms["post-form"].reset();
-                    document.getElementById("proba").innerHTML = json['probability']
-                    document.getElementById("la").innerHTML = json['loan_amount']
-                    document.getElementById("lt").innerHTML = json['loan_term']
-                    document.getElementById("ai").innerHTML = json['applicant_income']
-                    document.getElementById("ci").innerHTML = json['co_applicant_income']
-                },
-                error : function(xhr,errmsg,err) {
-
-                }
-            });
-        })
-    </script>
 
 {% endblock %}
