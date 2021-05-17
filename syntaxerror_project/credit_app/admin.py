@@ -8,7 +8,7 @@ from credit_app.models import PredictModel
 class PredictModelAdmin(admin.ModelAdmin):
 
     list_display = [
-        '__str__',
+        'requestor',
         'married',
         'education',
         'applicant_income',
