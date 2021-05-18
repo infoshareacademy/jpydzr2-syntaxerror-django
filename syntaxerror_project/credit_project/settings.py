@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -75,10 +76,10 @@ WSGI_APPLICATION = 'credit_project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'credit',
-        'USER': 'postgres',
-        'PASSWORD': 'pass',
-        'HOST': 'localhost',
+        'NAME': config('DB_NAME'),
+        'USER': config('DB_USER'),
+        'PASSWORD': config('DB_PASSWORD'),
+        'HOST': config('DB_HOST'),
         'PORT': '5432',
     }
 }
@@ -126,11 +127,11 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-LOGIN_REDIRECT_URL = 'credit_app:predict'
+LOGIN_REDIRECT_URL = 'predict:submit_prediction'
 LOGIN_URL = 'accounts:login'
 
 LOGOUT_URL = 'accounts:logout'
-LOGOUT_REDIRECT_URL = 'credit_app:predict'
+LOGOUT_REDIRECT_URL = 'predict:submit_prediction'
 
 # CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap4"
