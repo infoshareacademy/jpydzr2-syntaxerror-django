@@ -1,3 +1,4 @@
+import os
 import joblib
 from django.shortcuts import render
 from credit_app.forms import PredictForm
@@ -8,6 +9,8 @@ import pandas as pd
 import lightgbm as lgb
 from sklearn.preprocessing import MinMaxScaler
 from django.views.generic import ListView
+from django.http import JsonResponse
+from credit_project import settings
 
 
 # Create your views here.
@@ -30,13 +33,15 @@ def predict_chances(request):
                       credit_history, total_income]]
 
             # Unpickle scaler and scale
-            with open('ml_model/MinMaxScaler.save', 'rb') as fo:
+            path = os.path.join(settings.BASE_DIR, 'ml_model/MinMaxScaler.save')
+            with open(path, 'rb') as fo:
                 scaler = joblib.load(fo)
 
             feats_scaled = scaler.transform(feats)
 
             # Unpickle model
-            model = pd.read_pickle('ml_model/LGBM_model.pickle')
+            path = os.path.join(settings.BASE_DIR, 'ml_model/LGBM_model.pickle')
+            model = pd.read_pickle(path)
 
             # Make prediction
             result = model.predict_proba(feats_scaled)[:, 1][0]
