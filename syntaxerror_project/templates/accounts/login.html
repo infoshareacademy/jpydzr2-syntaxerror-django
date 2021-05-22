@@ -1,22 +1,28 @@
 {% extends "base.html" %}
 
-{% block title %}Login{% endblock %}
+{% load crispy_forms_tags %}
 
 {% block content %}
-  <h1>Login</h1>
-    {% if form.errors %}
-    <p>
-     Login or password incorrect.
-    Try again or <a href="{% url "accounts:register" %}">register here!</a>
-    </p>
-  {% else %}
 
-  {% endif %}
-  <p>Login form:</p>
-  <form method="post">
-    {{ form.as_p }}
-    {% csrf_token %}
-      <p><input type="submit" value= "Login"></p>
 
-  </form>
+    <div class="container-">
+        <div class="row">
+            <div id="register-div" class="col pt-5">
+                <a href={% url "predict:submit_prediction" %}>< Back</a>
+                <p id="signing-header">Sign In</p>
+                <p>Don't have an account? <a href="{% url "account:register" %}">Sign up</a></p>
+                <form method="POST" class="form-group">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    <button type="submit" class="btn btn-success block">Sign ip</button>
+                </form>
+            </div>
+
+            <div id="register-img-div" class="col pt-5">
+                {% load static %}
+                <img src="{% static "images/login.png" %}" alt="login">
+            </div>
+        <div>
+    </div>
+
 {% endblock %}

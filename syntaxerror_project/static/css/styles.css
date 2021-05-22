@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@500;700&display=swap');
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+img {
+    max-width: 100%;
+}
+
+label {
+    font-family: 'Libre Franklin', sans-serif;
+    color: #DDDDDE;
+}
+
+.text-muted {
+    font-family: 'Libre Franklin', sans-serif;
+    color: white!important;
+}
+
+.container-fluid {
+    background-color: #1E6B82;
+}
+
+#form-div {
+    margin-left: 80px;
+    margin-right: 80px;
+}
+
+#register-img-div {
+    margin-left: 80px;
+}
+
+.form-control {
+    border: 2px solid #7094A6;
+    background-color: #7094A6;
+    font-family: 'Libre Franklin', sans-serif;
+}
+
+#signing-header {
+    font-family: 'Libre Franklin', sans-serif;
+    font-weight: 900;
+    font-size: 50px;
+    color: #DDDDDE;
+  }
+
+#signing-text {
+    font-family: 'Libre Franklin', sans-serif;
+    font-size: 15px;
+    color: #DDDDDE;
+  }
+
+.btn{
+    margin-top: 30px;
+    display: block;
+    width: 100%;
+    background-color: #AF7978;
+    font-family: 'Libre Franklin', sans-serif;
+    font-size: 18px;
+    color: #DDDDDE;
+}
+
+a:link, a:visited, a:hover {
+    font-family: 'Libre Franklin', sans-serif;
+    color: #151820;
+}
