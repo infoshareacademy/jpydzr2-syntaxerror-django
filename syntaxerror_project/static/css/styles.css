@@ -2,8 +2,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@500;700&display=swap');
 
 
-html {
+html, body {
     scroll-behavior: smooth;
+    height: 100%;
 }
 
 img {
@@ -32,6 +33,10 @@ label {
 
 #register-img-div {
     margin-left: 80px;
+}
+
+#predict-img-div {
+    margin-left: 100px;
 }
 
 /* Form styles */
@@ -83,7 +88,6 @@ a:link, a:visited, a:hover {
 }
 
 .navbar {
-    position: absolute;
-    top: 0px;
+    background-color: #1E6B82;
     width: 100%;
 }

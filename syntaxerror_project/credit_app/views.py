@@ -61,9 +61,13 @@ def predict_chances(request):
                                  probability))
 
     form = PredictForm()
-    return render(request, "predictions/predict.html", {"form": form})
+    return render(request, "index.html", {"form": form})
 
 
 class RequestsView(ListView):
     model = PredictModel
     template_name = 'predictions/loan_requests.html'
+
+
+def home(request):
+    return render(request, 'home.html')

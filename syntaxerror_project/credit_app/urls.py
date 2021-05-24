@@ -6,6 +6,7 @@ from . import views
 app_name = 'credit_app'
 
 urlpatterns = [
-    path('predict/', views.predict_chances, name='submit_prediction'),
+    path('', views.predict_chances, name='submit_prediction'),
+    path('', views.home, name='home'),
     path('requests/', views.RequestsView.as_view(), name='requests'),
     ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
