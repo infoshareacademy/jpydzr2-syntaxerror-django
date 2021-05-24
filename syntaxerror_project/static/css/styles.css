@@ -74,7 +74,19 @@ label {
     background-color: #AF7978;
     border: none;
     border-radius: 4px;
-    color: white;
+    color: #DDDDDE;
+    padding: 10px 28px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.nav-btn {
+    background-color: transparent;
+    border: none;
+    border-radius: 4px;
+    color: #DDDDDE;
     padding: 10px 28px;
     text-align: center;
     text-decoration: none;
@@ -92,13 +104,6 @@ a:link, a:visited, a:hover {
     width: 100%;
 }
 
-
-
-
-/*.navbar-default{*/
-/*  transition:500ms ease;*/
-/*  background:transparent;*/
-/*}*/
 #main-nav.scrolled{
   background:#115266;
 }
