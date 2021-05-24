@@ -4,7 +4,7 @@ $(document).ready(function() {
 
 $(function () {
   $(document).scroll(function () {
-    var $nav = $(".navbar-fixed-top");
+    var $nav = $("#main-nav");
     $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
   });
 });

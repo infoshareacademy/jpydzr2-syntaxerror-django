@@ -3,7 +3,9 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-    {% include 'predictions/navbar.html' %}
-    {% include 'home.html' %}
-    {% include 'predictions/predict.html' %}
+    <div class="main">
+        {% include 'navbar.html' %}
+        {% include 'home.html' %}
+        {% include 'predictions/predict.html' %}
+    </div>
 {% endblock %}
