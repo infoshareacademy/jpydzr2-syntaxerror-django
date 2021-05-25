@@ -185,3 +185,51 @@ label {
     color: #DDDDDE;
     transition: color 0.4s;
 }
+
+@keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+.fade-in {
+  animation: fadeIn ease 3s;
+}
+
+
+@keyframes fadeInLeft {
+    from {
+        opacity:0;
+        transform: translatex(-100px);
+    }
+    to {
+        opacity:1;
+        transform: translatex(0);
+    }
+}
+.in-left {
+    animation-name: fadeInLeft;
+    animation-fill-mode: both;
+    animation-duration: 0.6s;
+    animation-delay: 0.6s;
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity:0;
+        transform: translatex(0px);
+    }
+    to {
+        opacity:1;
+        transform: translatex(-100px);
+    }
+}
+.in-right {
+    animation-name: fadeInRight;
+    animation-fill-mode: both;
+    animation-duration: 0.6s;
+    animation-delay: 0.6s;
+}
