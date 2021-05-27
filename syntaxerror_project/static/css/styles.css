@@ -4,7 +4,10 @@
 
 html, body {
     scroll-behavior: smooth;
+    scroll-padding-top: 70px;
     height: 100%;
+    font-family: 'Libre Franklin', sans-serif;
+    background-color: #1E6B82;
 }
 
 img {
@@ -12,61 +15,58 @@ img {
 }
 
 label {
-    font-family: 'Libre Franklin', sans-serif;
     font-weight: 600;
     color: #DDDDDE;
 }
 
 .text-muted {
-    font-family: 'Libre Franklin', sans-serif;
     color: white!important;
 }
 
 #home-text {
-    font-family: 'Libre Franklin', sans-serif;
     font-weight: 300;
     font-size: 20px;
     color: #DDDDDE;
   }
 
-
-.container-fluid {
-    background-color: #1E6B82;
+.container {
+    margin: 0 auto;
+    max-width: 1480px;
 }
 
-#main_div {
-    background-color: #1E6B82;
+.container-fluid {
+    width: 90%;
+}
+
+.row {
+    width: 100%;
+    max-width: 1480px;
+    margin: 0 auto;
 }
 
 #form-div {
-    margin-left: 80px;
-    margin-right: 80px;
+    margin-left: 40px;
+    margin-right: 40px;
 }
 
 #register-img-div {
-    margin-left: 80px;
+    margin-left: 40px;
 }
 
-#predict-img-div {
-    margin-left: 100px;
-}
 
 /* Form styles */
 .form-control {
     border: 2px solid #7094A6;
     background-color: #7094A6;
-    font-family: 'Libre Franklin', sans-serif;
 }
 
 #signing-header {
-    font-family: 'Libre Franklin', sans-serif;
     font-weight: 900;
     font-size: 50px;
     color: #DDDDDE;
   }
 
 #signing-text {
-    font-family: 'Libre Franklin', sans-serif;
     font-size: 15px;
     color: #DDDDDE;
   }
@@ -76,14 +76,12 @@ label {
     display: block;
     width: 100%;
     background-color: #AF7978;
-    font-family: 'Libre Franklin', sans-serif;
     font-weight: 800;
     font-size: 18px;
     color: #DDDDDE;
 }
 .signup-btn {
     width: 110px;
-    font-family: 'Libre Franklin', sans-serif;
     font-weight: 800;
     font-size: 16px;
     text-align: center;
@@ -98,7 +96,6 @@ label {
 
 .signup-btn:hover {
     width: 110px;
-    font-family: 'Libre Franklin', sans-serif;
     font-weight: 800;
     font-size: 16px;
     text-align: center;
@@ -114,7 +111,6 @@ label {
 
 .signin-btn {
     width: 110px;
-    font-family: 'Libre Franklin', sans-serif;
     font-weight: 800;
     font-size: 16px;
     text-align: center;
@@ -129,7 +125,6 @@ label {
 
 .signin-btn:hover {
     width: 110px;
-    font-family: 'Libre Franklin', sans-serif;
     font-weight: 800;
     font-size: 16px;
     text-align: center;
@@ -157,14 +152,13 @@ label {
 }
 
 .nav-btn:hover {
-    font-family: 'Libre Franklin', sans-serif;
     text-decoration: none;
     color: #151820;
     transition: color 0.4s;
 }
 
 
-.navbar {
+.nav {
     background-color: #1E6B82;
     width: 100%;
 }
@@ -175,12 +169,10 @@ label {
 
 .links {
     cursor:pointer;
-    font-family: 'Libre Franklin', sans-serif;
     color: #151820;
 }
 
 .links:hover {
-    font-family: 'Libre Franklin', sans-serif;
     text-decoration: none;
     color: #DDDDDE;
     transition: color 0.4s;
@@ -220,11 +212,11 @@ label {
 @keyframes fadeInRight {
     from {
         opacity:0;
-        transform: translatex(0px);
+        transform: translatex(100px);
     }
     to {
         opacity:1;
-        transform: translatex(-100px);
+        transform: translatex(0px);
     }
 }
 .in-right {
@@ -233,3 +225,23 @@ label {
     animation-duration: 0.6s;
     animation-delay: 0.6s;
 }
+
+@keyframes fadeInBottom {
+    from {
+        opacity:0;
+        transform: translatey(100px);
+    }
+    to {
+        opacity:1;
+        transform: translatey(0px);
+    }
+}
+.in-bottom {
+    animation-name: fadeInBottom;
+    animation-fill-mode: both;
+    animation-duration: 0.6s;
+    animation-delay: 0.6s;
+}
+
+
+

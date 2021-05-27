@@ -1,13 +1,13 @@
 {% load crispy_forms_tags %}
 
-<div id="predict-section" class="container-fluid vh-100">
-    <div class="row h-100">
-        <div id="predict-img-div" class="col my-auto d-none d-lg-block">
+<div id="predict-section" class="container" style="height: 900px">
+    <div class="row">
+        <div class="col col-7 my-auto d-none d-lg-flex">
             {% load static %}
             <img src="{% static "images/estimate.png" %}" alt="predict">
         </div>
 
-        <div id="form-div" class="col-lg-4 my-auto">
+        <div class="col col-lg-5 section in-bottom">
             <p id="signing-header">Asses chances</p>
             <form method="POST" class="form-group">
                 {% csrf_token %}
