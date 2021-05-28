@@ -53,6 +53,23 @@ label {
     margin-left: 40px;
 }
 
+.message-div {
+    position: absolute;
+    left: 0;
+    right: 0;
+    padding: ;
+    text-align : center;
+    max-width: 1480px;
+    margin: 0 auto;
+
+}
+
+.registration-success-message {
+    font-size: 15px;
+    font-weight: 700;
+    color: #DDDDDE;
+}
+
 
 /* Form styles */
 .form-control {
