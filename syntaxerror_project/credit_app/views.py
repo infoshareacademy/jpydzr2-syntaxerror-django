@@ -3,6 +3,7 @@ from django.shortcuts import render
 from credit_app.forms import PredictForm
 from credit_app.models import PredictModel
 from django.contrib.auth.models import User
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib import messages
 import pandas as pd
 import lightgbm as lgb
@@ -64,7 +65,7 @@ def predict_chances(request):
     return render(request, "index.html", {"form": form})
 
 
-class RequestsView(ListView):
+class RequestsView(LoginRequiredMixin, ListView):
     model = PredictModel
     template_name = 'predictions/loan_requests.html'
 
