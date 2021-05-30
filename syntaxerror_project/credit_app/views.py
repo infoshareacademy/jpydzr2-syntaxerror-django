@@ -72,3 +72,7 @@ class RequestsView(LoginRequiredMixin, ListView):
 
 def home(request):
     return render(request, 'home.html')
+
+
+def testimonials(request):
+    return render(request, 'testimonials.html')

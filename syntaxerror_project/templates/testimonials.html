@@ -1,0 +1,58 @@
+{% load static %}
+
+<div id="testimonials-section" class="container" style="height: 900px">
+    <div class="row" style="height: 100%">
+        <div class="col col-lg-6 my-auto">
+            <h1>What clients say about us</h1>
+            <p class="subtitle">Don’t take our word for it — hear what our customers are saying</p>
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="img-area"><img src="{% static "images/first_person.png" %}" alt="first_person">
+                        </div>
+                        <div class="img-text">
+                            <h3>Rahul K.</h3>
+                            <p>I would like to express my thanks for the work you have done for me over the past
+                                years. The expertise and attention to detail with which you have handled my financial
+                                affairs could not be faulted.</p>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <div class="img-area"><img src="{% static "images/second_person.png" %}" alt="second_person">
+                        </div>
+                        <div class="img-text">
+                            <h3>John B.</h3>
+                            <p>I am absolutely delighted with your service. It is really refreshing to work
+                                with a financial advisor who is truly interested in their client’s needs, circumstances
+                                and preferences.</p>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <div class="img-area">
+                            <img src="{% static "images/third_person.png" %}" alt="third_person">
+                        </div>
+                        <div class="img-text">
+                            <h3>Barbara M.</h3>
+                            <p>Passion, knowledge and a genuine interest in achieving the best for clients is what
+                                makes a truly professional Financial Advisor. Your staff has this and more.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col col-6 my-auto d-none d-lg-flex in-right">
+            <h1>There will be a pic here</h1>
+{#            <img src="{% static "images/home.png" %}" alt="home">#}
+        </div>
+
+    </div>
+</div>

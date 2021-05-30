@@ -8,5 +8,6 @@ app_name = 'credit_app'
 urlpatterns = [
     path('', views.predict_chances, name='submit_prediction'),
     path('', views.home, name='home'),
+    path('', views.testimonials, name='testimonials'),
     path('requests/', views.RequestsView.as_view(), name='requests'),
     ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

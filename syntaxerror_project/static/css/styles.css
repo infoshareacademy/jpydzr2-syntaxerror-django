@@ -10,9 +10,9 @@ html, body {
     background-color: #1E6B82;
 }
 
-img {
-    max-width: 100%;
-}
+/*img {*/
+/*    max-width: 100%;*/
+/*}*/
 
 label {
     font-weight: 600;
@@ -23,9 +23,22 @@ label {
     color: white!important;
 }
 
-#home-text {
+h1 {
+    font-weight: 900;
+    font-size: 3rem;
+    color: #DDDDDE;
+    margin: 0;
+}
+
+.subtitle {
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: #AF7978;
+}
+
+.standard-text {
     font-weight: 300;
-    font-size: 20px;
+    font-size: 1.25rem;
     color: #DDDDDE;
   }
 
@@ -76,12 +89,6 @@ label {
     border: 2px solid #7094A6;
     background-color: #7094A6;
 }
-
-#signing-header {
-    font-weight: 900;
-    font-size: 50px;
-    color: #DDDDDE;
-  }
 
 #signing-text {
     font-size: 15px;
@@ -262,3 +269,45 @@ label {
 
 
 
+/*carousel styling*/
+.carousel-inner {
+    max-width: 500px;
+    min-height: 400px;
+    background: #115266;
+    color: #DDDDDE;
+    border-radius: 15px;
+    padding: 20px;
+}
+
+.img-area{
+    text-align: center;
+}
+
+.img-area img{
+    width: 40%;
+    margin-bottom: 20px;
+}
+
+#carouselExampleIndicators {
+    max-width: 500px;
+    text-align: center;
+}
+
+.carousel-indicators li {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin: 5px;
+    text-indent: 0;
+    cursor: pointer;
+    border: none;
+    border-radius: 50%;
+    background-color: #1E6B82;
+}
+.carousel-indicators .active {
+    width: 40px;
+    height: 12px;
+    margin: 5px;
+    border-radius: 6px;
+    background-color: #AF7978;
+}
