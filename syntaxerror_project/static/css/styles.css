@@ -30,6 +30,12 @@ h1 {
     margin: 0;
 }
 
+h3 {
+    font-weight: 900;
+    font-size: 1.5rem;
+    color: #DDDDDE;
+}
+
 .subtitle {
     font-weight: 700;
     font-size: 1.25rem;
@@ -182,6 +188,28 @@ h1 {
 }
 
 
+.nav-btn.left-btn {
+    background-color: transparent;
+    border: none;
+    border-radius: 4px;
+    color: #DDDDDE;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-weight: 800;
+    font-size: 16px;
+}
+
+.nav-btn.left-btn:hover {
+    text-decoration: none;
+    color: #151820;
+    transition: color 0.4s;
+}
+
+
 .nav {
     background-color: #1E6B82;
     width: 100%;
@@ -202,6 +230,7 @@ h1 {
     transition: color 0.4s;
 }
 
+/* text animations */
 @keyframes fadeIn {
   0% {
     opacity:0;
@@ -269,7 +298,7 @@ h1 {
 
 
 
-/*carousel styling*/
+/* carousel styling */
 .carousel-inner {
     max-width: 500px;
     min-height: 400px;

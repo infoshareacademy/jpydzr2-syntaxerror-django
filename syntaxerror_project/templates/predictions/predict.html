@@ -11,9 +11,8 @@
             <h1>Asses loan chances</h1>
             <form method="POST" class="form-group">
                 {% csrf_token %}
-                {{ form|crispy }}
-                <button type="submit" class="btn">Predict
-                </button>
+                {{ predict_form|crispy }}
+                <button type="submit" class="btn">Predict</button>
             </form>
 
             {% if messages %}

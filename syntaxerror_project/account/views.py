@@ -33,7 +33,7 @@ def register(request):
             new_user = user_form.save(commit=False)
             new_user.set_password(user_form.cleaned_data['password'])
             new_user.save()
-            messages.success(request, 'Registration successful! Please sign-in.')
+            messages.success(request, "Your account has been created. Welcome to SyntaxError —we're happy to have you! 🎉 Please sign-in.")
 
     user_form = UserRegistrationForm()
     return render(request, 'registration/register.html', {'user_form': user_form})

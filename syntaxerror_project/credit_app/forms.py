@@ -33,3 +33,9 @@ class PredictForm(forms.Form):
         choices=((1, "Yes"), (0, "No")),
         label='Do you have a credit history in our bank?',
     )
+
+
+class ContactForm(forms.Form):
+    email = forms.EmailField(required=True)
+    subject = forms.CharField(required=True)
+    message = forms.CharField(widget=forms.Textarea, required=True)

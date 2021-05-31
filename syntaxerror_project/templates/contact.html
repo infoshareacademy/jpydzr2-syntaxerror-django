@@ -1,0 +1,22 @@
+{% load crispy_forms_tags %}
+
+<div id="contact-section" class="container" style="height: 900px">
+    <div class="row" style="height: 100%">
+
+        <div class="col col-7 my-auto d-none d-lg-flex in-right">
+            {% load static %}
+            <h1>There will be a pic here</h1>
+            {#            <img src="{% static "images/home.png" %}" alt="home">#}
+        </div>
+
+        <div class="col col-lg-5 my-auto">
+            <h1>Contact us</h1>
+            <form method="POST" class="form-group">
+                {% csrf_token %}
+                {{ contact_form|crispy }}
+                <button type="submit" class="btn">Send</button>
+            </form>
+        </div>
+
+    </div>
+</div>
