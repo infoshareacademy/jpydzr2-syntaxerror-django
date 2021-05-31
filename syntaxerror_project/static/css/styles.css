@@ -10,9 +10,9 @@ html, body {
     background-color: #1E6B82;
 }
 
-/*img {*/
-/*    max-width: 100%;*/
-/*}*/
+.col img{
+    width: 100%;
+}
 
 label {
     font-weight: 600;
@@ -68,15 +68,11 @@ h3 {
     margin-right: 40px;
 }
 
-#register-img-div {
-    margin-left: 40px;
-}
-
 .message-div {
     position: absolute;
     left: 0;
     right: 0;
-    padding: ;
+    top: 5px;
     text-align : center;
     max-width: 1480px;
     margin: 0 auto;

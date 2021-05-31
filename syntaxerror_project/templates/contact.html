@@ -1,5 +1,6 @@
 {% load crispy_forms_tags %}
 
+
 <div id="contact-section" class="container" style="height: 900px">
     <div class="row" style="height: 100%">
 
@@ -14,7 +15,8 @@
             <form method="POST" class="form-group">
                 {% csrf_token %}
                 {{ contact_form|crispy }}
-                <button type="submit" class="btn">Send</button>
+                <button type="submit" class="btn" data-toggle="modal">Send
+                </button>
             </form>
         </div>
 
