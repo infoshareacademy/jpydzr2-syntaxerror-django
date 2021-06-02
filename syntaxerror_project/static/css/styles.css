@@ -10,7 +10,7 @@ html, body {
     background-color: #1E6B82;
 }
 
-.col img{
+.col img {
     width: 100%;
 }
 
@@ -20,7 +20,7 @@ label {
 }
 
 .text-muted {
-    color: white!important;
+    color: white !important;
 }
 
 h1 {
@@ -46,11 +46,42 @@ h3 {
     font-weight: 300;
     font-size: 1.25rem;
     color: #DDDDDE;
-  }
+}
 
 .container {
     margin: 0 auto;
+    height: 900px;
     max-width: 1480px;
+}
+
+@media only screen and (max-width: 900px) {
+    .container {
+        height: 100%;
+        margin: 25px auto;
+    }
+
+    h1 {
+        font-weight: 800;
+        font-size: 2rem;
+        margin: 0;
+    }
+
+    h3 {
+        font-weight: 800;
+        font-size: 1rem;
+    }
+
+    .subtitle {
+        font-weight: 700;
+        font-size: 0.9rem;
+        color: #AF7978;
+    }
+
+    .standard-text {
+        font-weight: 300;
+        font-size: 1rem;
+        color: #DDDDDE;
+    }
 }
 
 .container-fluid {
@@ -73,7 +104,7 @@ h3 {
     left: 0;
     right: 0;
     top: 5px;
-    text-align : center;
+    text-align: center;
     max-width: 1480px;
     margin: 0 auto;
 
@@ -95,7 +126,7 @@ h3 {
 #signing-text {
     font-size: 15px;
     color: #DDDDDE;
-  }
+}
 
 .btn {
     margin-top: 30px;
@@ -106,6 +137,7 @@ h3 {
     font-size: 18px;
     color: #DDDDDE;
 }
+
 .signup-btn {
     width: 110px;
     font-weight: 800;
@@ -211,12 +243,12 @@ h3 {
     width: 100%;
 }
 
-#main-nav.scrolled{
-  background:#115266;
+#main-nav.scrolled {
+    background: #115266;
 }
 
 .links {
-    cursor:pointer;
+    cursor: pointer;
     color: #151820;
 }
 
@@ -228,29 +260,30 @@ h3 {
 
 /* text animations */
 @keyframes fadeIn {
-  0% {
-    opacity:0;
-  }
-  100% {
-    opacity:1;
-  }
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 .fade-in {
-  animation: fadeIn ease 3s;
+    animation: fadeIn ease 3s;
 }
 
 
 @keyframes fadeInLeft {
     from {
-        opacity:0;
+        opacity: 0;
         transform: translatex(-100px);
     }
     to {
-        opacity:1;
+        opacity: 1;
         transform: translatex(0);
     }
 }
+
 .in-left {
     animation-name: fadeInLeft;
     animation-fill-mode: both;
@@ -260,14 +293,15 @@ h3 {
 
 @keyframes fadeInRight {
     from {
-        opacity:0;
+        opacity: 0;
         transform: translatex(100px);
     }
     to {
-        opacity:1;
+        opacity: 1;
         transform: translatex(0px);
     }
 }
+
 .in-right {
     animation-name: fadeInRight;
     animation-fill-mode: both;
@@ -277,21 +311,21 @@ h3 {
 
 @keyframes fadeInBottom {
     from {
-        opacity:0;
+        opacity: 0;
         transform: translatey(100px);
     }
     to {
-        opacity:1;
+        opacity: 1;
         transform: translatey(0px);
     }
 }
+
 .in-bottom {
     animation-name: fadeInBottom;
     animation-fill-mode: both;
     animation-duration: 0.6s;
     animation-delay: 0.6s;
 }
-
 
 
 /* carousel styling */
@@ -304,11 +338,11 @@ h3 {
     padding: 20px;
 }
 
-.img-area{
+.img-area {
     text-align: center;
 }
 
-.img-area img{
+.img-area img {
     width: 40%;
     margin-bottom: 20px;
 }
@@ -316,6 +350,7 @@ h3 {
 #carouselExampleIndicators {
     max-width: 500px;
     text-align: center;
+    border: 2px solid red;
 }
 
 .carousel-indicators li {
@@ -329,6 +364,7 @@ h3 {
     border-radius: 50%;
     background-color: #1E6B82;
 }
+
 .carousel-indicators .active {
     width: 40px;
     height: 12px;
@@ -340,9 +376,9 @@ h3 {
 
 #map {
     height: 600px;
-  /* The height is 400 pixels */
     width: 100%;
     min-width: 400px;
+    margin: 20px auto;
 }
 
 .form-group {
