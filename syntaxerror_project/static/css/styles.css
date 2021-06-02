@@ -336,3 +336,15 @@ h3 {
     border-radius: 6px;
     background-color: #AF7978;
 }
+
+
+#map {
+    height: 600px;
+  /* The height is 400 pixels */
+    width: 100%;
+    min-width: 400px;
+}
+
+.form-group {
+    min-width: 400px;
+}

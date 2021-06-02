@@ -151,3 +151,5 @@ DEFAULT_FROM_EMAIL = 'syntaxerror-django@protonmail.com'
 # EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASS')
 # EMAIL_PORT = 587
 # EMAIL_USE_TLS = True
+
+GOOGLE_MAPS_API_KEY = config('GOOGLE_MAPS_API_KEY')

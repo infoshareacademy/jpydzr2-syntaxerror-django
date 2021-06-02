@@ -13,9 +13,10 @@ import pandas as pd
 import lightgbm as lgb
 from sklearn.preprocessing import MinMaxScaler
 from django.views.generic import ListView
-
+from django.conf import settings
 
 # Create your views here.
+
 
 def predict_and_contact_forms(request):
     if request.method == "POST":
@@ -80,7 +81,9 @@ def predict_and_contact_forms(request):
 
     predict_form = PredictForm()
     contact_form = ContactForm()
-    return render(request, "index.html", {"predict_form": predict_form, 'contact_form': contact_form})
+    return render(request, "index.html", {"predict_form": predict_form,
+                                          'contact_form': contact_form,
+                                          'api_key': settings.GOOGLE_MAPS_API_KEY})
 
 
 class RequestsView(LoginRequiredMixin, ListView):
