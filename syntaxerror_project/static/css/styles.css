@@ -5,7 +5,7 @@
 html, body {
     scroll-behavior: smooth;
     scroll-padding-top: 70px;
-    height: 100%;
+    height: 100vh;
     font-family: 'Libre Franklin', sans-serif;
     background-color: #1E6B82;
 }
@@ -50,7 +50,7 @@ h3 {
 
 .container {
     margin: 0 auto;
-    height: 900px;
+    height: calc(100vh - 70px);
     max-width: 1480px;
 }
 
@@ -91,6 +91,7 @@ h3 {
 .row {
     width: 100%;
     max-width: 1480px;
+    height: 100%;
     margin: 0 auto;
 }
 
@@ -350,7 +351,6 @@ h3 {
 #carouselExampleIndicators {
     max-width: 500px;
     text-align: center;
-    border: 2px solid red;
 }
 
 .carousel-indicators li {
