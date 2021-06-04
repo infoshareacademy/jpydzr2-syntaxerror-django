@@ -6,7 +6,6 @@ joblib==1.0.1
 lightgbm==3.2.1
 numpy==1.20.2
 pandas==1.2.4
-pkg-resources==0.0.0
 psycopg2-binary==2.8.6
 python-dateutil==2.8.1
 python-decouple==3.4
