@@ -18,5 +18,8 @@
     {% csrf_token %}
       <p><input type="submit" value= "Login"></p>
 
+      {% load socialaccount %}
+      <a href="{% provider_login_url 'google' %}"> Login with Google</a>
+
   </form>
 {% endblock %}
