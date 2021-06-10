@@ -1,13 +1,27 @@
 {% extends "base.html" %}
 
-{% block title %}Edit account{% endblock %}
+{% load crispy_forms_tags %}
 
 {% block content %}
-  <h1>Edit account</h1>
-  <p>Edit your account:</p>
-  <form method="post" enctype="multipart/form-data">
-    {{ user_form.as_p }}
-    {% csrf_token %}
-    <p><input type="submit" value="Save changes"></p>
-  </form>
+    <div id="main_div">
+        {% include 'navbar.html' %}
+    </div>
+
+    <div id="main_div" class="main">
+        <div class="container-fluid ">
+            <div class="row h-100">
+                <div id="register-div" class="col-lg-5 my-auto">
+                    <div id="form-div">
+                        <h1>Profile edit</h1>
+                        <p>Edit your account:</p>
+                        <form method="POST" class="form-group">
+                            {% csrf_token %}
+                            {{ user_form|crispy }}
+                            <button type="submit" class="btn btn-outline-info">Save changes</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

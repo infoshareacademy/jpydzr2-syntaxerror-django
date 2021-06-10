@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <div id="main_div">
+        {% include 'navbar.html' %}
+    </div>
+     <div id="main_div" class="main">
+        <div>
+            <div class="h-100">
+                <h1><a href="{% url "accounts:edit" %}">Edit profile</a></h1>
+                <br>
+                <h1><a href="{% url "accounts:pass_change" %}">Change password</a></h1>
+            </div>
+        </div>
+    </div>
+{% endblock %}
