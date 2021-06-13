@@ -143,13 +143,4 @@ CRISPY_TEMPLATE_PACK = "bootstrap4"
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 DEFAULT_FROM_EMAIL = 'syntaxerror-django@protonmail.com'
 
-
-# Testing the setup here
-# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-# EMAIL_HOST = 'smtp.sendgrid.net'
-# EMAIL_HOST_USER = 'apikey'
-# EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASS')
-# EMAIL_PORT = 587
-# EMAIL_USE_TLS = True
-
 GOOGLE_MAPS_API_KEY = config('GOOGLE_MAPS_API_KEY')
