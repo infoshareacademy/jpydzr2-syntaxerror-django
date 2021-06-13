@@ -1,28 +1,38 @@
 import joblib
 from django.shortcuts import render
-from credit_app.forms import PredictForm
-from credit_app.models import PredictModel
+
+from .forms import PredictForm
+from .forms import ContactForm
+from .models import PredictModel
 from django.contrib.auth.models import User
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.http import HttpResponse
+from django.core.mail import send_mail, BadHeaderError
+from django.shortcuts import render, redirect
 from django.contrib import messages
 import pandas as pd
 import lightgbm as lgb
 from sklearn.preprocessing import MinMaxScaler
 from django.views.generic import ListView
-
+from django.conf import settings
 
 # Create your views here.
 
-def predict_chances(request):
+
+def predict_and_contact_forms(request):
     if request.method == "POST":
-        form = PredictForm(request.POST)
-        if form.is_valid():
-            married = form.cleaned_data['married']
-            education = form.cleaned_data['education']
-            applicant_income = form.cleaned_data['applicant_income']
-            co_applicant_income = form.cleaned_data['co_applicant_income']
-            loan_amount = form.cleaned_data['loan_amount']
-            loan_term = form.cleaned_data['loan_term']
-            credit_history = form.cleaned_data['credit_history']
+        predict_form = PredictForm(request.POST)
+        contact_form = ContactForm(request.POST)
+
+        # handle predict form
+        if predict_form.is_valid():
+            married = predict_form.cleaned_data['married']
+            education = predict_form.cleaned_data['education']
+            applicant_income = predict_form.cleaned_data['applicant_income']
+            co_applicant_income = predict_form.cleaned_data['co_applicant_income']
+            loan_amount = predict_form.cleaned_data['loan_amount']
+            loan_term = predict_form.cleaned_data['loan_term']
+            credit_history = predict_form.cleaned_data['credit_history']
             total_income = applicant_income + co_applicant_income
 
             feats = [[married, education, applicant_income,
@@ -60,10 +70,31 @@ def predict_chances(request):
                              'Your chances to get the loan: {}'.format(
                                  probability))
 
-    form = PredictForm()
-    return render(request, "predictions/predict.html", {"form": form})
+        # handle contact form
+        if contact_form.is_valid():
+            email = contact_form.cleaned_data['email']
+            subject = contact_form.cleaned_data['subject']
+            message = contact_form.cleaned_data['message']
+            try:
+                send_mail(subject, message, email, ['m.zajac1988@gmail.com'])
+            except BadHeaderError:
+                return HttpResponse('Invalid header found.')
+
+    predict_form = PredictForm()
+    contact_form = ContactForm()
+    return render(request, "index.html", {"predict_form": predict_form,
+                                          'contact_form': contact_form,
+                                          'api_key': settings.GOOGLE_MAPS_API_KEY})
 
 
-class RequestsView(ListView):
+class RequestsView(LoginRequiredMixin, ListView):
     model = PredictModel
     template_name = 'predictions/loan_requests.html'
+
+
+def home(request):
+    return render(request, 'home.html')
+
+
+def testimonials(request):
+    return render(request, 'testimonials.html')

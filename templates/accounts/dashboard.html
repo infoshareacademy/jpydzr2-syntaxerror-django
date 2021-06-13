@@ -1,16 +1,1 @@
 {% extends "base.html" %}
-
-{% block title %}Dashboard{% endblock %}
-
-{% block content %}
-  <h1>Dashboard</h1>
-
-  <p><a href="{% url "accounts:edit" %}">edit</a><p><br><br>
-
-    {% if user.is_authenticated %}
-        <p>Welcome, {{ user.username }} !</p>
-    {% else %}
-        <p>Welcome Friend, please log in</p>
-    {% endif %}
-
-{% endblock %}

@@ -21,4 +21,6 @@ urlpatterns = [
     path('', include('credit_app.urls', namespace='predict')),
     path('', include('account_basic.urls', namespace='accounts')),
     path('accounts/', include('allauth.urls')),
+
+    #path('', include('account.urls', namespace='accounts'))
 ]

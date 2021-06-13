@@ -1,24 +1,26 @@
-{% extends 'base.html' %}
-
 {% load crispy_forms_tags %}
 
-{% block content %}
+<div id="predict-section" class="container">
+    <div class="row">
+        <div class="col col-7 my-auto d-none d-lg-flex">
+            {% load static %}
+            <img src="{% static "images/estimate.png" %}" alt="predict">
+        </div>
 
-    <div class="container col-md-3 pt-5">
-        <h1>Predict</h1>
-        <form method="POST" class="form-group">
-            {% csrf_token %}
-            {{ form|crispy }}
-            <button type="submit" class="btn btn-success" data-toggle="modal"
-                    data-target="#predictModal">Predict
-            </button>
-        </form>
+        <div class="col col-lg-5 my-auto section in-bottom">
+            <h1>Asses loan chances</h1>
+            <form method="POST" class="form-group">
+                {% csrf_token %}
+                {{ predict_form|crispy }}
+                <button type="submit" class="btn">Predict</button>
+            </form>
 
-        {% if messages %}
-            {% for message in  messages %}
-                {{ message }}
-            {% endfor %}
-        {% endif %}
+            {% if messages %}
+                {% for message in  messages %}
+                    {{ message }}
+                {% endfor %}
+            {% endif %}
+        </div>
+
     </div>
-
-{% endblock %}
+</div>
