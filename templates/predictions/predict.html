@@ -1,0 +1,26 @@
+{% load crispy_forms_tags %}
+
+<div id="predict-section" class="container">
+    <div class="row">
+        <div class="col col-7 my-auto d-none d-lg-flex">
+            {% load static %}
+            <img src="{% static "images/estimate.png" %}" alt="predict">
+        </div>
+
+        <div class="col col-lg-5 my-auto section in-bottom">
+            <h1>Asses loan chances</h1>
+            <form method="POST" class="form-group">
+                {% csrf_token %}
+                {{ predict_form|crispy }}
+                <button type="submit" class="btn">Predict</button>
+            </form>
+
+            {% if messages %}
+                {% for message in  messages %}
+                    {{ message }}
+                {% endfor %}
+            {% endif %}
+        </div>
+
+    </div>
+</div>

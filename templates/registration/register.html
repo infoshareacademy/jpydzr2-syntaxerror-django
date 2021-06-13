@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+    <div id="main_div" class="main">
+        <div class="container-fluid vh-100">
+            <div class="message-div">
+                {% if messages %}
+                    {% for message in  messages %}
+                        <p class="registration-success-message">{{ message }}</p>
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <div class="row h-100">
+                <div id="register-div" class="col-lg-5 my-auto">
+                    <div id="form-div">
+                        <a class="links" href={% url "credit_app:home" %}>< Back</a>
+                        <h1>Sign Up</h1>
+                        <p id="signing-text">Already have an account? <a class="links" href="{% url "account:login" %}">Sign
+                            in</a></p>
+                        <form method="POST" class="form-group">
+                            {% csrf_token %}
+                            {{ user_form|crispy }}
+                            <button type="submit" class="btn">Sign up</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="col col-7 my-auto d-none d-lg-flex">
+                    {% load static %}
+                    <img src="{% static "images/login.png" %}" alt="login">
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
