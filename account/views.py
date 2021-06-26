@@ -1,9 +1,10 @@
-from django.contrib import messages, auth
-from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from django.contrib import messages
 from django.contrib.auth import authenticate, login
-from .forms import LoginForm, UserRegistrationForm, UserEditForm
+from django.contrib.auth.decorators import login_required
+from django.http import HttpResponse
+from django.shortcuts import render, redirect
+
+from .forms import LoginForm, UserRegistrationForm, UserEditForm, ProfileEditForm
 
 
 def user_login(request):
@@ -40,21 +41,22 @@ def register(request):
 
 
 @login_required
-def edit(request):
+def update_profile(request):
     if request.method == 'POST':
-        user_form = UserEditForm(instance=request.user,
-                                 data=request.POST)
-        if user_form.is_valid():
-
+        user_form = UserEditForm(request.POST, instance=request.user)
+        profile_form = ProfileForm(request.POST, instance=request.user.profile)
+        if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
-            messages.success(request, 'Success update profile')
+            profile_form.save()
+            messages.success(request, 'Your profile was successfully updated!')
         else:
-            messages.error(request, 'Error update profile')
+            messages.error(request, 'Please correct the error below.')
     else:
         user_form = UserEditForm(instance=request.user)
-    return render(request,
-                  'accounts/edit.html',
-                  {'user_form': user_form})
+        profile_form = ProfileForm(instance=request.user.profile)
+    return render(request, 'accounts/edit.html',
+                  {'user_form': user_form,
+                   'profile_form': profile_form})
 
 
 @login_required
