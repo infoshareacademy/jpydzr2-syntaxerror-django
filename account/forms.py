@@ -1,5 +1,6 @@
 from django import forms
 from django.contrib.auth.models import User
+from account.models import Profile
 from django.forms import PasswordInput
 
 
@@ -29,3 +30,13 @@ class UserEditForm(forms.ModelForm):
     class Meta:
         model = User
         fields = ('first_name', 'last_name', 'email')
+
+
+class ProfileEditForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = (
+            'married', 'education', 'birth_date',
+            'phone_num', 'street', 'str_building_no',
+            'str_local_no', 'city', 'zip_code',
+        )
