@@ -21,6 +21,11 @@
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
                         {% if request.user.is_authenticated %}
+                            <a class="nav-btn m-1" href={% url "account:edit" %}>Edit Profile</a>
+                        {% endif %}
+                    </li>
+                    <li class="nav-item">
+                        {% if request.user.is_authenticated %}
                             <a class="nav-btn m-1" href={% url "predict:requests" %}>Your requests</a>
                         {% endif %}
                     </li>
