@@ -1,0 +1,386 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@500;700&display=swap');
+
+
+html, body {
+    scroll-behavior: smooth;
+    scroll-padding-top: 70px;
+    height: 100vh;
+    font-family: 'Libre Franklin', sans-serif;
+    background-color: #1E6B82;
+}
+
+.col img {
+    width: 100%;
+}
+
+label {
+    font-weight: 600;
+    color: #DDDDDE;
+}
+
+.text-muted {
+    color: white !important;
+}
+
+h1 {
+    font-weight: 900;
+    font-size: 3rem;
+    color: #DDDDDE;
+    margin: 0;
+}
+
+h3 {
+    font-weight: 900;
+    font-size: 1.5rem;
+    color: #DDDDDE;
+}
+
+.subtitle {
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: #AF7978;
+}
+
+.standard-text {
+    font-weight: 300;
+    font-size: 1.25rem;
+    color: #DDDDDE;
+}
+
+.container {
+    margin: 0 auto;
+    height: calc(100vh - 70px);
+    max-width: 1480px;
+}
+
+@media only screen and (max-width: 900px) {
+    .container {
+        height: 100%;
+        margin: 25px auto;
+    }
+
+    h1 {
+        font-weight: 800;
+        font-size: 2rem;
+        margin: 0;
+    }
+
+    h3 {
+        font-weight: 800;
+        font-size: 1rem;
+    }
+
+    .subtitle {
+        font-weight: 700;
+        font-size: 0.9rem;
+        color: #AF7978;
+    }
+
+    .standard-text {
+        font-weight: 300;
+        font-size: 1rem;
+        color: #DDDDDE;
+    }
+}
+
+.container-fluid {
+    width: 90%;
+}
+
+.row {
+    width: 100%;
+    max-width: 1480px;
+    height: 100%;
+    margin: 0 auto;
+}
+
+#form-div {
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.message-div {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 5px;
+    text-align: center;
+    max-width: 1480px;
+    margin: 0 auto;
+
+}
+
+.registration-success-message {
+    font-size: 15px;
+    font-weight: 700;
+    color: #DDDDDE;
+}
+
+
+/* Form styles */
+.form-control {
+    border: 2px solid #7094A6;
+    background-color: #7094A6;
+}
+
+#signing-text {
+    font-size: 15px;
+    color: #DDDDDE;
+}
+
+.btn {
+    margin-top: 30px;
+    display: block;
+    width: 100%;
+    background-color: #AF7978;
+    font-weight: 800;
+    font-size: 18px;
+    color: #DDDDDE;
+}
+
+.signup-btn {
+    width: 110px;
+    font-weight: 800;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    background-color: #AF7978;
+    border: none;
+    border-radius: 4px;
+    color: #DDDDDE;
+    padding: 10px 15px;
+    display: inline-block;
+}
+
+.signup-btn:hover {
+    width: 110px;
+    font-weight: 800;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    background-color: #AF7978;
+    border: none;
+    border-radius: 4px;
+    color: #151820;
+    padding: 10px 15px;
+    display: inline-block;
+    transition: color 0.4s;
+}
+
+.signin-btn {
+    width: 110px;
+    font-weight: 800;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    background-color: transparent;
+    border: none;
+    border-radius: 4px;
+    color: #DDDDDE;
+    padding: 10px 15px;
+    display: inline-block;
+}
+
+.signin-btn:hover {
+    width: 110px;
+    font-weight: 800;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    background-color: #AF7978;
+    border: none;
+    border-radius: 4px;
+    color: #151820;
+    padding: 10px 15px;
+    display: inline-block;
+}
+
+
+.nav-btn {
+    background-color: transparent;
+    border: none;
+    border-radius: 4px;
+    color: #DDDDDE;
+    padding: 10px 28px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-weight: 800;
+    font-size: 16px;
+}
+
+.nav-btn:hover {
+    text-decoration: none;
+    color: #151820;
+    transition: color 0.4s;
+}
+
+
+.nav-btn.left-btn {
+    background-color: transparent;
+    border: none;
+    border-radius: 4px;
+    color: #DDDDDE;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-weight: 800;
+    font-size: 16px;
+}
+
+.nav-btn.left-btn:hover {
+    text-decoration: none;
+    color: #151820;
+    transition: color 0.4s;
+}
+
+
+.nav {
+    background-color: #1E6B82;
+    width: 100%;
+}
+
+#main-nav.scrolled {
+    background: #115266;
+}
+
+.links {
+    cursor: pointer;
+    color: #151820;
+}
+
+.links:hover {
+    text-decoration: none;
+    color: #DDDDDE;
+    transition: color 0.4s;
+}
+
+/* text animations */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.fade-in {
+    animation: fadeIn ease 3s;
+}
+
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translatex(-100px);
+    }
+    to {
+        opacity: 1;
+        transform: translatex(0);
+    }
+}
+
+.in-left {
+    animation-name: fadeInLeft;
+    animation-fill-mode: both;
+    animation-duration: 0.6s;
+    animation-delay: 0.6s;
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translatex(100px);
+    }
+    to {
+        opacity: 1;
+        transform: translatex(0px);
+    }
+}
+
+.in-right {
+    animation-name: fadeInRight;
+    animation-fill-mode: both;
+    animation-duration: 0.6s;
+    animation-delay: 0.6s;
+}
+
+@keyframes fadeInBottom {
+    from {
+        opacity: 0;
+        transform: translatey(100px);
+    }
+    to {
+        opacity: 1;
+        transform: translatey(0px);
+    }
+}
+
+.in-bottom {
+    animation-name: fadeInBottom;
+    animation-fill-mode: both;
+    animation-duration: 0.6s;
+    animation-delay: 0.6s;
+}
+
+
+/* carousel styling */
+.carousel-inner {
+    max-width: 500px;
+    min-height: 400px;
+    background: #115266;
+    color: #DDDDDE;
+    border-radius: 15px;
+    padding: 20px;
+}
+
+.img-area {
+    text-align: center;
+}
+
+.img-area img {
+    width: 40%;
+    margin-bottom: 20px;
+}
+
+#carouselExampleIndicators {
+    max-width: 500px;
+    text-align: center;
+}
+
+.carousel-indicators li {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin: 5px;
+    text-indent: 0;
+    cursor: pointer;
+    border: none;
+    border-radius: 50%;
+    background-color: #1E6B82;
+}
+
+.carousel-indicators .active {
+    width: 40px;
+    height: 12px;
+    margin: 5px;
+    border-radius: 6px;
+    background-color: #AF7978;
+}
+
+
+#map {
+    height: 600px;
+    width: 100%;
+    min-width: 400px;
+    margin: 20px auto;
+}
+
+.form-group {
+    min-width: 400px;
+}

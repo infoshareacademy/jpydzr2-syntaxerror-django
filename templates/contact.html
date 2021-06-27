@@ -1,0 +1,71 @@
+{% load crispy_forms_tags %}
+
+<script>
+    // Initialize and add the map
+    function initMap() {
+        // The location of Uluru
+        const paris = {lat: 48.857942828320816, lng: 2.3009248347911386};
+        // The map, centered at Uluru
+        const map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 15,
+            center: paris,
+        });
+        // The marker, positioned at Uluru
+        const marker = new google.maps.Marker({
+            position: paris,
+            map: map,
+        });
+    }
+</script>
+
+<!-- Modal -->
+<div class="modal fade" id="email-confirmation-modal" tabindex="-1" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Thank you!</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <button type="button" class="btn btn-default" aria-label="Left Align">
+                    <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+                </button>
+                <h3>"Thank you for your emial! 🎉 </h3>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="contact-section" class="container">
+    <div class="row" style="height: 100%">
+
+        <div class="col col-lg-5 my-auto">
+            <h1>Contact us</h1>
+            <form method="POST" class="form-group" id="myForm">
+                {% csrf_token %}
+                {{ contact_form|crispy }}
+                <button type="submit" id="btnSubmit" class="btn" data-toggle="modal"
+                        data-target="#email-confirmation-modal">Send
+                </button>
+                {#                <input type="button" class="btn" onclick="myFunction();return false" value="Submit form">#}
+            </form>
+        </div>
+
+        <div class="col col-lg-6 ml-auto my-auto in-right">
+            {% load static %}
+            <div id="map"></div>
+        </div>
+
+    </div>
+</div>
+
+
+<script src="https://maps.googleapis.com/maps/api/js?key={{api_key}}&callback=initMap&libraries=&v=weekly"
+        async></script>

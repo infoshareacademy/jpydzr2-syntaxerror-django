@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+{% include 'navbar.html' %}
+    <div class="container-fluid vh-100 pt-5">
+    <table id="results_table" class="table table-striped table-bordered">
+        <thead>
+        <tr>
+            <th>Request Date/Time</th>
+            <th>Married</th>
+            <th>Education</th>
+            <th>Applicant Income</th>
+            <th>Co-applicant Income</th>
+            <th>Loan Amount</th>
+            <th>Loan Term</th>
+            <th>Credit History</th>
+            <th>Loan Chances</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for obj in object_list %}
+            {% if obj.requestor == user %}
+            <tr>
+                <td>{{ obj.request_datetime }}</td>
+                <td>{{ obj.married }}</td>
+                <td>{{ obj.education }}</td>
+                <td>{{ obj.applicant_income }}</td>
+                <td>{{ obj.co_applicant_income }}</td>
+                <td>{{ obj.loan_amount }}</td>
+                <td>{{ obj.loan_term }}</td>
+                <td>{{ obj.credit_history }}</td>
+                <td>{{ obj.loan_chances }}</td>
+            </tr>
+            {% endif %}
+        {% endfor %}
+        </tbody>
+    </table>
+    </div>
+
+{% endblock %}
