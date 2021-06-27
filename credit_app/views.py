@@ -17,50 +17,44 @@ from django.conf import settings
 
 # Create your views here.
 
+def _get_probability(clean_data):
+    total_income = clean_data['applicant_income'] + clean_data['co_applicant_income']
+
+    feats = [[key for key in clean_data.keys()]]
+    feats[0].append(total_income)
+
+    with open('ml_model/MinMaxScaler.save', 'rb') as fo:
+        scaler = joblib.load(fo)
+
+    feats_scaled = scaler.transform(feats)
+
+    model = pd.read_pickle('ml_model/LGBM_model.pickle')
+
+    return model.predict_proba(feats_scaled)[:, 1][0]
+
+def _send_contact_form_email(clean_data):
+    email = clean_data['email']
+    subject = clean_data['subject']
+    message = clean_data['message']
+
+    try:
+        send_mail(subject, message, email, ['m.zajac1988@gmail.com'])
+    except BadHeaderError:
+        return HttpResponse('Invalid header found.')
 
 def predict_and_contact_forms(request):
     if request.method == "POST":
         predict_form = PredictForm(request.POST)
         contact_form = ContactForm(request.POST)
 
-        # handle predict form
         if predict_form.is_valid():
-            married = predict_form.cleaned_data['married']
-            education = predict_form.cleaned_data['education']
-            applicant_income = predict_form.cleaned_data['applicant_income']
-            co_applicant_income = predict_form.cleaned_data['co_applicant_income']
-            loan_amount = predict_form.cleaned_data['loan_amount']
-            loan_term = predict_form.cleaned_data['loan_term']
-            credit_history = predict_form.cleaned_data['credit_history']
-            total_income = applicant_income + co_applicant_income
-
-            feats = [[married, education, applicant_income,
-                      co_applicant_income, loan_amount, loan_term,
-                      credit_history, total_income]]
-
-            # Unpickle scaler and scale
-            with open('ml_model/MinMaxScaler.save', 'rb') as fo:
-                scaler = joblib.load(fo)
-
-            feats_scaled = scaler.transform(feats)
-
-            # Unpickle model
-            model = pd.read_pickle('ml_model/LGBM_model.pickle')
-
-            # Make prediction
-            result = model.predict_proba(feats_scaled)[:, 1][0]
+            result = _get_probability(predict_form.cleaned_data)
 
             if request.user.is_authenticated:
                 p = PredictModel(
                     requestor=User.objects.get(username=request.user.username),
-                    married=married,
-                    education=education,
-                    applicant_income=applicant_income,
-                    co_applicant_income=co_applicant_income,
-                    loan_amount=loan_amount,
-                    loan_term=loan_term,
-                    credit_history=credit_history,
                     loan_chances=result,
+                    **predict_form.cleaned_data
                 )
                 p.save()
 
@@ -69,20 +63,11 @@ def predict_and_contact_forms(request):
                              'Your chances to get the loan: {}'.format(
                                  probability))
 
-        # handle contact form
         if contact_form.is_valid():
-            email = contact_form.cleaned_data['email']
-            subject = contact_form.cleaned_data['subject']
-            message = contact_form.cleaned_data['message']
-            try:
-                send_mail(subject, message, email, ['m.zajac1988@gmail.com'])
-            except BadHeaderError:
-                return HttpResponse('Invalid header found.')
+            _send_contact_form_email(predict_form.cleaned_data)
 
-    predict_form = PredictForm()
-    contact_form = ContactForm()
-    return render(request, "index.html", {"predict_form": predict_form,
-                                          'contact_form': contact_form,
+    return render(request, "index.html", {"predict_form": PredictForm(),
+                                          'contact_form': ContactForm(),
                                           'api_key': settings.GOOGLE_MAPS_API_KEY})
 
 
