@@ -13,10 +13,13 @@ class ContactTestCase(TestCase):
     def test_contact__negative(self, mail_mock):
         url = reverse('credit_app:submit_prediction')
         data = {'email': 'jakismail@com.com'}
+        result = client.post(url, data=data)
         assert not mail_mock.count
     
     @mock.patch('django.core.mail.send_mail')
     def test_contact__negative(self, mail_mock):
         url = reverse('credit_app:submit_prediction')
         data = {'email': 'jakismail@com.com', 'message': 'wiadomość', 'subject': 'tutaj tytuł'}
+        result = client.post(url, data=data)
+        
         assert mail_mock.count == 1
