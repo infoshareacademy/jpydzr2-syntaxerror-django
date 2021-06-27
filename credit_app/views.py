@@ -79,7 +79,7 @@ def predict_and_contact_forms(request):
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
 
-    predict_form = PredictForm()
+    predict_form = PredictForm(user=request.user)
     contact_form = ContactForm()
     return render(request, "index.html", {"predict_form": predict_form,
                                           'contact_form': contact_form,

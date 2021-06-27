@@ -33,6 +33,8 @@ class UserEditForm(forms.ModelForm):
 
 
 class ProfileEditForm(forms.ModelForm):
+    married = forms.ChoiceField(choices=[(0 ,"No"), (1, "Yes")])
+    education = forms.ChoiceField(choices=[(1, "Graduate"), (0, "Not Graduate")])
     class Meta:
         model = Profile
         fields = (
