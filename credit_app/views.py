@@ -64,7 +64,7 @@ def predict_and_contact_forms(request):
                                  probability))
 
         if contact_form.is_valid():
-            _send_contact_form_email(predict_form.cleaned_data)
+            _send_contact_form_email(contact_form.cleaned_data)
 
     return render(request, "index.html", {"predict_form": PredictForm(),
                                           'contact_form': ContactForm(),
