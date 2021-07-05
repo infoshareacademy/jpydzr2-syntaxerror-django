@@ -2,6 +2,7 @@ from django import forms
 
 
 class PredictForm(forms.Form):
+
     married = forms.ChoiceField(
         required=True,
         choices=((1, "Yes"), (0, "No")),
@@ -34,6 +35,13 @@ class PredictForm(forms.Form):
         label='Do you have a credit history in our bank?',
     )
 
+    def __init__(self, *args, **kwargs):
+        self.user = kwargs.pop('user')
+        super().__init__(*args, **kwargs)
+        if self.user.is_authenticated:
+            self.fields['married'].initial = self.user.profile.married
+            self.fields['education'].initial = self.user.profile.education
+        self.fields['loan_term'].initial = 360
 
 class ContactForm(forms.Form):
     email = forms.EmailField(required=True)
