@@ -1,9 +1,14 @@
-{% extends "base.html" %}
+{% extends "accounts/profile_base.html" %}
 
-{% block title %}Dashboard{% endblock %}
+{% block title %}Profile{% endblock %}
 
 {% block content %}
-  <h1>Dashboard</h1>
-
-  <p><a href="{% url "accounts:edit" %}">edit</a><p>
+  <div class="container">
+  <section>
+      <h1>Page One</h1>
+  </section>
+    <section>
+      <h1>Page Two</h1>
+  </section>
+  </div>
 {% endblock %}
